@@ -76,12 +76,12 @@ function Hero() {
               href={contactInfo.whatsappLink}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-full gradient-brand px-6 py-3 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-[1.03]"
             >
-              <MessageCircle className="h-4 w-4 text-[#25D366]" /> Contacter sur WhatsApp
+              <MessageCircle className="h-4 w-4" /> Contacter sur WhatsApp
             </a>
           </div>
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-cyan-accent">
             {["Devis gratuit", "Réponse sous 24h", "Antananarivo & toute l'île"].map((b) => (
               <span key={b} className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cyan-accent" /> {b}</span>
             ))}
