@@ -81,9 +81,9 @@ function Hero() {
               <MessageCircle className="h-4 w-4" /> Contacter sur WhatsApp
             </a>
           </div>
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-cyan-accent">
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-brand">
             {["Devis gratuit", "Réponse sous 24h", "Madagascar & international"].map((b) => (
-              <span key={b} className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cyan-accent" /> {b}</span>
+              <span key={b} className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-brand" /> {b}</span>
             ))}
           </div>
         </motion.div>
