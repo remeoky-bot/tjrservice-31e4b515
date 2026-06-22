@@ -37,7 +37,7 @@ function Index() {
 
 const reasons = [
   { icon: ShieldCheck, title: "Service professionnel", text: "Une exécution rigoureuse, des livrables soignés." },
-  { icon: Rocket, title: "Livraison rapide", text: "Des délais respectés grâce à un process agile." },
+  { icon: Rocket, title: "Livraison rapide", text: "Respect des délais garanti grâce à un processus agile." },
   { icon: Wallet, title: "Prix abordables", text: "Des tarifs justes adaptés au marché local." },
   { icon: Headphones, title: "Support réactif", text: "Une équipe disponible pour vous accompagner." },
   { icon: Layers, title: "Solutions personnalisées", text: "Chaque projet est unique, nos solutions aussi." },
@@ -137,7 +137,7 @@ function ServicesPreview() {
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-accent">Nos services</span>
-        <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">Tout ce dont vous avez besoin, sous un seul toit</h2>
+        <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">Toutes vos solutions, réunies au même endroit.</h2>
         <p className="mt-3 text-muted-foreground">Des solutions digitales et techniques complètes pour faire avancer vos projets.</p>
       </div>
 

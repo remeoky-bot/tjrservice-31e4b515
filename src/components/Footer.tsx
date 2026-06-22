@@ -12,8 +12,7 @@ export function Footer() {
             <span className="font-display text-lg font-bold">TJR Service</span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
-            Votre partenaire de confiance en technologies et en BTP. Création web,
-            applications, design et solutions techniques à Antananarivo, Madagascar.
+            Votre partenaire de confiance en technologies et en BTP. Nous concevons des sites web, applications, designs et solutions techniques pour des clients locaux et internationaux.
           </p>
           <div className="mt-4 flex gap-3">
             <a href="https://web.facebook.com/profile.php?id=100052744453818" target="_blank" rel="noreferrer" aria-label="Facebook" className="grid h-9 w-9 place-items-center rounded-full glass hover:text-cyan-accent"><Facebook className="h-4 w-4" /></a>
