@@ -84,6 +84,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "TJR Service" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { property: "og:title", content: "TJR Service – Agence digitale & BTP à Madagascar" },
+      { name: "twitter:title", content: "TJR Service – Agence digitale & BTP à Madagascar" },
+      { property: "og:description", content: "TJR Service – Création de sites web, applications mobiles, design graphique, maintenance informatique et solutions BTP à Antananarivo, Madagascar." },
+      { name: "twitter:description", content: "TJR Service – Création de sites web, applications mobiles, design graphique, maintenance informatique et solutions BTP à Antananarivo, Madagascar." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/81b67a64-aa13-4895-90ab-782b21efac62/id-preview-fb14a70e--dcb47a67-21fe-4e0a-9e3d-1635c61286ca.lovable.app-1782161584925.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/81b67a64-aa13-4895-90ab-782b21efac62/id-preview-fb14a70e--dcb47a67-21fe-4e0a-9e3d-1635c61286ca.lovable.app-1782161584925.png" },
     ],
     links: [
       {
