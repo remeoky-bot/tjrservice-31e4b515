@@ -12,8 +12,8 @@ import heroImg from "@/assets/hero-tech.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "TJR Service – Création site web & solutions tech à Madagascar" },
-      { name: "description", content: "Agence digitale et BTP à Antananarivo : sites web, applications mobiles, design graphique, maintenance informatique et architecture. Demandez un devis gratuit." },
+      { title: "TJR Service – Sites web & solutions tech à Madagascar" },
+      { name: "description", content: "Agence digitale et BTP à Antananarivo : sites web, apps mobiles, design, maintenance et BTP. Devis gratuit sous 24h." },
       { property: "og:title", content: "TJR Service – Agence digitale & BTP" },
       { property: "og:description", content: "Création de sites web, applications, design graphique et solutions techniques professionnelles à Madagascar." },
       { property: "og:url", content: "/" },

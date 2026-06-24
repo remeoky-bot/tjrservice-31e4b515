@@ -105,12 +105,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
+          "@type": "LocalBusiness",
           name: "TJR Service",
-          description: "Agence digitale et BTP à Madagascar",
+          description: "Agence digitale et BTP à Antananarivo, Madagascar",
+          url: "https://tjrservice.lovable.app",
           email: "remeoky01@gmail.com",
           telephone: "+261 34 79 333 70",
           address: { "@type": "PostalAddress", addressLocality: "Antananarivo", addressCountry: "MG" },
+          areaServed: "MG",
           sameAs: [
             "https://web.facebook.com/profile.php?id=100052744453818",
             "https://www.linkedin.com/in/joseph-remeoky-tafita-846728276",

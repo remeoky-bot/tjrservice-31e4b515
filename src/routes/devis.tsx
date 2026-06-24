@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useId, useState, type FormEvent } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
@@ -114,10 +114,12 @@ function DevisPage() {
 }
 
 function Field({ label, value, onChange, error, type = "text" }: { label: string; value: string; onChange: (v: string) => void; error?: string; type?: string }) {
+  const id = useId();
   return (
     <div>
-      <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</label>
+      <label htmlFor={id} className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</label>
       <input
+        id={id}
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -130,10 +132,12 @@ function Field({ label, value, onChange, error, type = "text" }: { label: string
 }
 
 function Select({ label, value, onChange, options, error }: { label: string; value: string; onChange: (v: string) => void; options: string[]; error?: string }) {
+  const id = useId();
   return (
     <div>
-      <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</label>
+      <label htmlFor={id} className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</label>
       <select
+        id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="mt-1.5 w-full rounded-xl border border-white/10 bg-background/60 px-4 py-3 text-sm outline-none focus:border-cyan-accent"

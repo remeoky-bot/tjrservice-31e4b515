@@ -8,12 +8,28 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Nos Services – Développement, Design, BTP | TJR Service" },
-      { name: "description", content: "Découvrez tous les services TJR Service : développement web et mobile, design graphique, maintenance informatique, architecture, BTP et électricité à Madagascar." },
+      { name: "description", content: "Services TJR Service : développement web et mobile, design graphique, maintenance, architecture, BTP et électricité à Madagascar." },
       { property: "og:title", content: "Nos Services – TJR Service" },
       { property: "og:description", content: "Solutions digitales et techniques complètes pour particuliers et entreprises." },
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            { "@type": "Service", name: "Développement web", areaServed: "MG", provider: { "@type": "LocalBusiness", name: "TJR Service" } },
+            { "@type": "Service", name: "Applications mobiles", areaServed: "MG", provider: { "@type": "LocalBusiness", name: "TJR Service" } },
+            { "@type": "Service", name: "Design graphique", areaServed: "MG", provider: { "@type": "LocalBusiness", name: "TJR Service" } },
+            { "@type": "Service", name: "Maintenance informatique", areaServed: "MG", provider: { "@type": "LocalBusiness", name: "TJR Service" } },
+            { "@type": "Service", name: "Architecture & BTP", areaServed: "MG", provider: { "@type": "LocalBusiness", name: "TJR Service" } },
+            { "@type": "Service", name: "Électricité", areaServed: "MG", provider: { "@type": "LocalBusiness", name: "TJR Service" } },
+          ],
+        }),
+      },
+    ],
   }),
   component: ServicesPage,
 });
