@@ -14,6 +14,22 @@ export const Route = createFileRoute("/services")({
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            { "@type": "Service", name: "Développement web", areaServed: "MG", provider: { "@type": "LocalBusiness", name: "TJR Service" } },
+            { "@type": "Service", name: "Applications mobiles", areaServed: "MG", provider: { "@type": "LocalBusiness", name: "TJR Service" } },
+            { "@type": "Service", name: "Design graphique", areaServed: "MG", provider: { "@type": "LocalBusiness", name: "TJR Service" } },
+            { "@type": "Service", name: "Maintenance informatique", areaServed: "MG", provider: { "@type": "LocalBusiness", name: "TJR Service" } },
+            { "@type": "Service", name: "Architecture & BTP", areaServed: "MG", provider: { "@type": "LocalBusiness", name: "TJR Service" } },
+            { "@type": "Service", name: "Électricité", areaServed: "MG", provider: { "@type": "LocalBusiness", name: "TJR Service" } },
+          ],
+        }),
+      },
+    ],
   }),
   component: ServicesPage,
 });
