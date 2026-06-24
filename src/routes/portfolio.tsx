@@ -44,6 +44,18 @@ export const Route = createFileRoute("/portfolio")({
       { property: "og:url", content: "/portfolio" },
     ],
     links: [{ rel: "canonical", href: "/portfolio" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Portfolio – TJR Service",
+          description: "Sélection de projets web, mobiles, design et BTP réalisés par TJR Service.",
+          url: "https://tjrservice.lovable.app/portfolio",
+        }),
+      },
+    ],
   }),
   component: PortfolioPage,
 });
