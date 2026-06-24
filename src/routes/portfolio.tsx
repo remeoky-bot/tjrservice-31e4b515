@@ -110,7 +110,7 @@ function PortfolioPage() {
               </div>
               <div className="p-5">
                 <div className="flex items-center justify-between gap-2">
-                  <h3 className="font-display text-lg font-semibold">{p.title}</h3>
+                  <h2 className="font-display text-lg font-semibold">{p.title}</h2>
                   <span className="rounded-full bg-cyan-accent/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-cyan-accent">{p.category}</span>
                 </div>
                 <p className="mt-1.5 text-sm text-muted-foreground">{p.description}</p>
