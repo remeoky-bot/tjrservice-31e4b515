@@ -1,0 +1,12 @@
+# TJR Service
+
+> Agence digitale et BTP à Antananarivo, Madagascar : création de sites web, applications mobiles, design graphique, maintenance informatique, architecture et solutions BTP.
+
+## Pages
+
+- [Accueil](/): Présentation de TJR Service et de ses solutions digitales et techniques.
+- [Services](/services): Développement web et mobile, design graphique, maintenance informatique, architecture et BTP.
+- [Portfolio](/portfolio): Sélection de projets web, mobiles, design et BTP réalisés par TJR Service.
+- [À propos](/about): Mission, vision, valeurs et présentation du fondateur Joseph Remeoky Tafita.
+- [Contact](/contact): Coordonnées (email, téléphone, WhatsApp) pour joindre TJR Service à Antananarivo.
+- [Devis](/devis): Formulaire pour obtenir un devis gratuit personnalisé sous 24h.
