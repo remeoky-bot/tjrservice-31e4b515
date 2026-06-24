@@ -55,7 +55,7 @@ function AboutPage() {
               <div className="grid h-12 w-12 place-items-center rounded-xl gradient-brand text-white shadow-glow">
                 <v.icon className="h-6 w-6" />
               </div>
-              <h3 className="mt-5 font-display text-xl font-semibold">{v.title}</h3>
+              <h2 className="mt-5 font-display text-xl font-semibold">{v.title}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{v.text}</p>
             </div>
           ))}
