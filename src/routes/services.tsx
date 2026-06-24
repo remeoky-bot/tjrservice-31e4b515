@@ -8,7 +8,7 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Nos Services – Développement, Design, BTP | TJR Service" },
-      { name: "description", content: "Découvrez tous les services TJR Service : développement web et mobile, design graphique, maintenance informatique, architecture, BTP et électricité à Madagascar." },
+      { name: "description", content: "Services TJR Service : développement web et mobile, design graphique, maintenance, architecture, BTP et électricité à Madagascar." },
       { property: "og:title", content: "Nos Services – TJR Service" },
       { property: "og:description", content: "Solutions digitales et techniques complètes pour particuliers et entreprises." },
       { property: "og:url", content: "/services" },
