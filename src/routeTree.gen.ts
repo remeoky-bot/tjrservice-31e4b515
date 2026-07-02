@@ -14,6 +14,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppStockRouteImport } from './routes/_app.stock'
+import { Route as AppPosRouteImport } from './routes/_app.pos'
 import { Route as AppDashboardRouteImport } from './routes/_app.dashboard'
 import { Route as AppCatalogRouteImport } from './routes/_app.catalog'
 
@@ -41,6 +42,11 @@ const AppStockRoute = AppStockRouteImport.update({
   path: '/stock',
   getParentRoute: () => AppRoute,
 } as any)
+const AppPosRoute = AppPosRouteImport.update({
+  id: '/pos',
+  path: '/pos',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppDashboardRoute = AppDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/catalog': typeof AppCatalogRoute
   '/dashboard': typeof AppDashboardRoute
+  '/pos': typeof AppPosRoute
   '/stock': typeof AppStockRoute
 }
 export interface FileRoutesByTo {
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/catalog': typeof AppCatalogRoute
   '/dashboard': typeof AppDashboardRoute
+  '/pos': typeof AppPosRoute
   '/stock': typeof AppStockRoute
 }
 export interface FileRoutesById {
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_app/catalog': typeof AppCatalogRoute
   '/_app/dashboard': typeof AppDashboardRoute
+  '/_app/pos': typeof AppPosRoute
   '/_app/stock': typeof AppStockRoute
 }
 export interface FileRouteTypes {
@@ -86,9 +95,17 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/catalog'
     | '/dashboard'
+    | '/pos'
     | '/stock'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/sitemap.xml' | '/catalog' | '/dashboard' | '/stock'
+  to:
+    | '/'
+    | '/auth'
+    | '/sitemap.xml'
+    | '/catalog'
+    | '/dashboard'
+    | '/pos'
+    | '/stock'
   id:
     | '__root__'
     | '/'
@@ -97,6 +114,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/_app/catalog'
     | '/_app/dashboard'
+    | '/_app/pos'
     | '/_app/stock'
   fileRoutesById: FileRoutesById
 }
@@ -144,6 +162,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppStockRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/pos': {
+      id: '/_app/pos'
+      path: '/pos'
+      fullPath: '/pos'
+      preLoaderRoute: typeof AppPosRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/dashboard': {
       id: '/_app/dashboard'
       path: '/dashboard'
@@ -164,12 +189,14 @@ declare module '@tanstack/react-router' {
 interface AppRouteChildren {
   AppCatalogRoute: typeof AppCatalogRoute
   AppDashboardRoute: typeof AppDashboardRoute
+  AppPosRoute: typeof AppPosRoute
   AppStockRoute: typeof AppStockRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppCatalogRoute: AppCatalogRoute,
   AppDashboardRoute: AppDashboardRoute,
+  AppPosRoute: AppPosRoute,
   AppStockRoute: AppStockRoute,
 }
 
