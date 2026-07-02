@@ -14,6 +14,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppStockRouteImport } from './routes/_app.stock'
+import { Route as AppSettingsRouteImport } from './routes/_app.settings'
 import { Route as AppRepairsRouteImport } from './routes/_app.repairs'
 import { Route as AppPosRouteImport } from './routes/_app.pos'
 import { Route as AppDashboardRouteImport } from './routes/_app.dashboard'
@@ -42,6 +43,11 @@ const IndexRoute = IndexRouteImport.update({
 const AppStockRoute = AppStockRouteImport.update({
   id: '/stock',
   path: '/stock',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => AppRoute,
 } as any)
 const AppRepairsRoute = AppRepairsRouteImport.update({
@@ -79,6 +85,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof AppDashboardRoute
   '/pos': typeof AppPosRoute
   '/repairs': typeof AppRepairsRoute
+  '/settings': typeof AppSettingsRoute
   '/stock': typeof AppStockRoute
 }
 export interface FileRoutesByTo {
@@ -90,6 +97,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof AppDashboardRoute
   '/pos': typeof AppPosRoute
   '/repairs': typeof AppRepairsRoute
+  '/settings': typeof AppSettingsRoute
   '/stock': typeof AppStockRoute
 }
 export interface FileRoutesById {
@@ -103,6 +111,7 @@ export interface FileRoutesById {
   '/_app/dashboard': typeof AppDashboardRoute
   '/_app/pos': typeof AppPosRoute
   '/_app/repairs': typeof AppRepairsRoute
+  '/_app/settings': typeof AppSettingsRoute
   '/_app/stock': typeof AppStockRoute
 }
 export interface FileRouteTypes {
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/pos'
     | '/repairs'
+    | '/settings'
     | '/stock'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/pos'
     | '/repairs'
+    | '/settings'
     | '/stock'
   id:
     | '__root__'
@@ -139,6 +150,7 @@ export interface FileRouteTypes {
     | '/_app/dashboard'
     | '/_app/pos'
     | '/_app/repairs'
+    | '/_app/settings'
     | '/_app/stock'
   fileRoutesById: FileRoutesById
 }
@@ -186,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppStockRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/settings': {
+      id: '/_app/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/repairs': {
       id: '/_app/repairs'
       path: '/repairs'
@@ -230,6 +249,7 @@ interface AppRouteChildren {
   AppDashboardRoute: typeof AppDashboardRoute
   AppPosRoute: typeof AppPosRoute
   AppRepairsRoute: typeof AppRepairsRoute
+  AppSettingsRoute: typeof AppSettingsRoute
   AppStockRoute: typeof AppStockRoute
 }
 
@@ -239,6 +259,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppDashboardRoute: AppDashboardRoute,
   AppPosRoute: AppPosRoute,
   AppRepairsRoute: AppRepairsRoute,
+  AppSettingsRoute: AppSettingsRoute,
   AppStockRoute: AppStockRoute,
 }
 
