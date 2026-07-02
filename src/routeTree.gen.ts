@@ -17,6 +17,7 @@ import { Route as AppStockRouteImport } from './routes/_app.stock'
 import { Route as AppRepairsRouteImport } from './routes/_app.repairs'
 import { Route as AppPosRouteImport } from './routes/_app.pos'
 import { Route as AppDashboardRouteImport } from './routes/_app.dashboard'
+import { Route as AppClientsRouteImport } from './routes/_app.clients'
 import { Route as AppCatalogRouteImport } from './routes/_app.catalog'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -58,6 +59,11 @@ const AppDashboardRoute = AppDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AppRoute,
 } as any)
+const AppClientsRoute = AppClientsRouteImport.update({
+  id: '/clients',
+  path: '/clients',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppCatalogRoute = AppCatalogRouteImport.update({
   id: '/catalog',
   path: '/catalog',
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/catalog': typeof AppCatalogRoute
+  '/clients': typeof AppClientsRoute
   '/dashboard': typeof AppDashboardRoute
   '/pos': typeof AppPosRoute
   '/repairs': typeof AppRepairsRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/catalog': typeof AppCatalogRoute
+  '/clients': typeof AppClientsRoute
   '/dashboard': typeof AppDashboardRoute
   '/pos': typeof AppPosRoute
   '/repairs': typeof AppRepairsRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_app/catalog': typeof AppCatalogRoute
+  '/_app/clients': typeof AppClientsRoute
   '/_app/dashboard': typeof AppDashboardRoute
   '/_app/pos': typeof AppPosRoute
   '/_app/repairs': typeof AppRepairsRoute
@@ -103,6 +112,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/sitemap.xml'
     | '/catalog'
+    | '/clients'
     | '/dashboard'
     | '/pos'
     | '/repairs'
@@ -113,6 +123,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/sitemap.xml'
     | '/catalog'
+    | '/clients'
     | '/dashboard'
     | '/pos'
     | '/repairs'
@@ -124,6 +135,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/sitemap.xml'
     | '/_app/catalog'
+    | '/_app/clients'
     | '/_app/dashboard'
     | '/_app/pos'
     | '/_app/repairs'
@@ -195,6 +207,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppDashboardRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/clients': {
+      id: '/_app/clients'
+      path: '/clients'
+      fullPath: '/clients'
+      preLoaderRoute: typeof AppClientsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/catalog': {
       id: '/_app/catalog'
       path: '/catalog'
@@ -207,6 +226,7 @@ declare module '@tanstack/react-router' {
 
 interface AppRouteChildren {
   AppCatalogRoute: typeof AppCatalogRoute
+  AppClientsRoute: typeof AppClientsRoute
   AppDashboardRoute: typeof AppDashboardRoute
   AppPosRoute: typeof AppPosRoute
   AppRepairsRoute: typeof AppRepairsRoute
@@ -215,6 +235,7 @@ interface AppRouteChildren {
 
 const AppRouteChildren: AppRouteChildren = {
   AppCatalogRoute: AppCatalogRoute,
+  AppClientsRoute: AppClientsRoute,
   AppDashboardRoute: AppDashboardRoute,
   AppPosRoute: AppPosRoute,
   AppRepairsRoute: AppRepairsRoute,
