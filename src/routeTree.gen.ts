@@ -10,41 +10,29 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as PortfolioRouteImport } from './routes/portfolio'
-import { Route as DevisRouteImport } from './routes/devis'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppStockRouteImport } from './routes/_app.stock'
+import { Route as AppSettingsRouteImport } from './routes/_app.settings'
+import { Route as AppRepairsRouteImport } from './routes/_app.repairs'
+import { Route as AppPosRouteImport } from './routes/_app.pos'
+import { Route as AppDashboardRouteImport } from './routes/_app.dashboard'
+import { Route as AppClientsRouteImport } from './routes/_app.clients'
+import { Route as AppCatalogRouteImport } from './routes/_app.catalog'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PortfolioRoute = PortfolioRouteImport.update({
-  id: '/portfolio',
-  path: '/portfolio',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DevisRoute = DevisRouteImport.update({
-  id: '/devis',
-  path: '/devis',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const AppRoute = AppRouteImport.update({
+  id: '/_app',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -52,72 +40,124 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppStockRoute = AppStockRouteImport.update({
+  id: '/stock',
+  path: '/stock',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRepairsRoute = AppRepairsRouteImport.update({
+  id: '/repairs',
+  path: '/repairs',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPosRoute = AppPosRouteImport.update({
+  id: '/pos',
+  path: '/pos',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppClientsRoute = AppClientsRouteImport.update({
+  id: '/clients',
+  path: '/clients',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCatalogRoute = AppCatalogRouteImport.update({
+  id: '/catalog',
+  path: '/catalog',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
-  '/devis': typeof DevisRoute
-  '/portfolio': typeof PortfolioRoute
-  '/services': typeof ServicesRoute
+  '/auth': typeof AuthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/catalog': typeof AppCatalogRoute
+  '/clients': typeof AppClientsRoute
+  '/dashboard': typeof AppDashboardRoute
+  '/pos': typeof AppPosRoute
+  '/repairs': typeof AppRepairsRoute
+  '/settings': typeof AppSettingsRoute
+  '/stock': typeof AppStockRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
-  '/devis': typeof DevisRoute
-  '/portfolio': typeof PortfolioRoute
-  '/services': typeof ServicesRoute
+  '/auth': typeof AuthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/catalog': typeof AppCatalogRoute
+  '/clients': typeof AppClientsRoute
+  '/dashboard': typeof AppDashboardRoute
+  '/pos': typeof AppPosRoute
+  '/repairs': typeof AppRepairsRoute
+  '/settings': typeof AppSettingsRoute
+  '/stock': typeof AppStockRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contact': typeof ContactRoute
-  '/devis': typeof DevisRoute
-  '/portfolio': typeof PortfolioRoute
-  '/services': typeof ServicesRoute
+  '/_app': typeof AppRouteWithChildren
+  '/auth': typeof AuthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/_app/catalog': typeof AppCatalogRoute
+  '/_app/clients': typeof AppClientsRoute
+  '/_app/dashboard': typeof AppDashboardRoute
+  '/_app/pos': typeof AppPosRoute
+  '/_app/repairs': typeof AppRepairsRoute
+  '/_app/settings': typeof AppSettingsRoute
+  '/_app/stock': typeof AppStockRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about'
-    | '/contact'
-    | '/devis'
-    | '/portfolio'
-    | '/services'
+    | '/auth'
     | '/sitemap.xml'
+    | '/catalog'
+    | '/clients'
+    | '/dashboard'
+    | '/pos'
+    | '/repairs'
+    | '/settings'
+    | '/stock'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about'
-    | '/contact'
-    | '/devis'
-    | '/portfolio'
-    | '/services'
+    | '/auth'
     | '/sitemap.xml'
+    | '/catalog'
+    | '/clients'
+    | '/dashboard'
+    | '/pos'
+    | '/repairs'
+    | '/settings'
+    | '/stock'
   id:
     | '__root__'
     | '/'
-    | '/about'
-    | '/contact'
-    | '/devis'
-    | '/portfolio'
-    | '/services'
+    | '/_app'
+    | '/auth'
     | '/sitemap.xml'
+    | '/_app/catalog'
+    | '/_app/clients'
+    | '/_app/dashboard'
+    | '/_app/pos'
+    | '/_app/repairs'
+    | '/_app/settings'
+    | '/_app/stock'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  ContactRoute: typeof ContactRoute
-  DevisRoute: typeof DevisRoute
-  PortfolioRoute: typeof PortfolioRoute
-  ServicesRoute: typeof ServicesRoute
+  AppRoute: typeof AppRouteWithChildren
+  AuthRoute: typeof AuthRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -130,39 +170,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/portfolio': {
-      id: '/portfolio'
-      path: '/portfolio'
-      fullPath: '/portfolio'
-      preLoaderRoute: typeof PortfolioRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/devis': {
-      id: '/devis'
-      path: '/devis'
-      fullPath: '/devis'
-      preLoaderRoute: typeof DevisRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/_app': {
+      id: '/_app'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AppRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -172,28 +191,86 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/stock': {
+      id: '/_app/stock'
+      path: '/stock'
+      fullPath: '/stock'
+      preLoaderRoute: typeof AppStockRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/settings': {
+      id: '/_app/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/repairs': {
+      id: '/_app/repairs'
+      path: '/repairs'
+      fullPath: '/repairs'
+      preLoaderRoute: typeof AppRepairsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/pos': {
+      id: '/_app/pos'
+      path: '/pos'
+      fullPath: '/pos'
+      preLoaderRoute: typeof AppPosRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/dashboard': {
+      id: '/_app/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/clients': {
+      id: '/_app/clients'
+      path: '/clients'
+      fullPath: '/clients'
+      preLoaderRoute: typeof AppClientsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/catalog': {
+      id: '/_app/catalog'
+      path: '/catalog'
+      fullPath: '/catalog'
+      preLoaderRoute: typeof AppCatalogRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppCatalogRoute: typeof AppCatalogRoute
+  AppClientsRoute: typeof AppClientsRoute
+  AppDashboardRoute: typeof AppDashboardRoute
+  AppPosRoute: typeof AppPosRoute
+  AppRepairsRoute: typeof AppRepairsRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppStockRoute: typeof AppStockRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppCatalogRoute: AppCatalogRoute,
+  AppClientsRoute: AppClientsRoute,
+  AppDashboardRoute: AppDashboardRoute,
+  AppPosRoute: AppPosRoute,
+  AppRepairsRoute: AppRepairsRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppStockRoute: AppStockRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  ContactRoute: ContactRoute,
-  DevisRoute: DevisRoute,
-  PortfolioRoute: PortfolioRoute,
-  ServicesRoute: ServicesRoute,
+  AppRoute: AppRouteWithChildren,
+  AuthRoute: AuthRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

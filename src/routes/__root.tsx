@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { AuthProvider } from "@/hooks/use-auth";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -77,19 +79,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "TJR Service – Agence digitale & BTP à Madagascar" },
-      { name: "description", content: "TJR Service – Création de sites web, applications mobiles, design graphique, maintenance informatique et solutions BTP à Antananarivo, Madagascar." },
-      { name: "author", content: "TJR Service" },
+      { title: "NEXEL Manager Pro – ERP téléphonie, informatique & réparation" },
+      { name: "description", content: "NEXEL Manager Pro – ERP moderne pour boutiques téléphonie, informatique et réparation à Madagascar. POS, stock, réparations, catalogue intelligent." },
+      { name: "author", content: "NEXEL" },
       { name: "theme-color", content: "#0F172A" },
-      { property: "og:site_name", content: "TJR Service" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { property: "og:site_name", content: "NEXEL Manager Pro" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { property: "og:title", content: "TJR Service – Agence digitale & BTP à Madagascar" },
-      { name: "twitter:title", content: "TJR Service – Agence digitale & BTP à Madagascar" },
-      { property: "og:description", content: "TJR Service – Création de sites web, applications mobiles, design graphique, maintenance informatique et solutions BTP à Antananarivo, Madagascar." },
-      { name: "twitter:description", content: "TJR Service – Création de sites web, applications mobiles, design graphique, maintenance informatique et solutions BTP à Antananarivo, Madagascar." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/81b67a64-aa13-4895-90ab-782b21efac62/id-preview-fb14a70e--dcb47a67-21fe-4e0a-9e3d-1635c61286ca.lovable.app-1782161584925.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/81b67a64-aa13-4895-90ab-782b21efac62/id-preview-fb14a70e--dcb47a67-21fe-4e0a-9e3d-1635c61286ca.lovable.app-1782161584925.png" },
+      { property: "og:title", content: "NEXEL Manager Pro" },
+      { name: "twitter:title", content: "NEXEL Manager Pro" },
+      { property: "og:description", content: "ERP moderne pour boutiques téléphonie, informatique et réparation." },
+      { name: "twitter:description", content: "ERP moderne pour boutiques téléphonie, informatique et réparation." },
     ],
     links: [
       {
@@ -100,26 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" },
     ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "TJR Service",
-          description: "Agence digitale et BTP à Antananarivo, Madagascar",
-          url: "https://tjrservice.lovable.app",
-          email: "remeoky01@gmail.com",
-          telephone: "+261 34 79 333 70",
-          address: { "@type": "PostalAddress", addressLocality: "Antananarivo", addressCountry: "MG" },
-          areaServed: "MG",
-          sameAs: [
-            "https://web.facebook.com/profile.php?id=100052744453818",
-            "https://www.linkedin.com/in/joseph-remeoky-tafita-846728276",
-          ],
-        }),
-      },
-    ],
+    scripts: [],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -146,8 +129,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <AuthProvider>
+        <Outlet />
+        <Toaster richColors position="top-right" />
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
