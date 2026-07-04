@@ -52,9 +52,9 @@ function OutroCard() {
           marginTop: 60, color: CREAM, fontFamily: "Inter, sans-serif",
           fontSize: 22, lineHeight: 2, opacity: 0.95,
         }}>
-          <div>📞 +261 34 79 333 70 &nbsp;·&nbsp; +261 32 04 464 90</div>
-          <div>💬 WhatsApp +261 34 81 016 11</div>
-          <div>✉️ remeoky01@gmail.com &nbsp;·&nbsp; Comeup @remeoky</div>
+          <div><span style={{ color: GOLD, fontWeight: 600 }}>TÉL</span>&nbsp;&nbsp;+261 34 79 333 70 &nbsp;·&nbsp; +261 32 04 464 90</div>
+          <div><span style={{ color: GOLD, fontWeight: 600 }}>WHATSAPP</span>&nbsp;&nbsp;+261 34 81 016 11</div>
+          <div><span style={{ color: GOLD, fontWeight: 600 }}>EMAIL</span>&nbsp;&nbsp;remeoky01@gmail.com &nbsp;·&nbsp; Comeup @remeoky</div>
         </div>
       </div>
     </AbsoluteFill>
