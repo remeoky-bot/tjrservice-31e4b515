@@ -1,70 +1,63 @@
-# NEXEL Manager Pro — Plan de construction
+# Pub TJR SERVICE — Vidéo promotionnelle 2min30
 
-Le cahier des charges décrit un logiciel complet type Odoo/Lightspeed/RepairDesk pour boutiques de téléphonie, informatique et réparation à Madagascar. Ce n'est pas un site vitrine : c'est une application de gestion complète (POS, stock, réparations, achats, clients, rapports, multi-boutiques, hors-ligne, impression tickets, catalogue intelligent).
+## Concept narratif (5 actes)
 
-Vu l'ampleur (27 pages, 18 chapitres, ~15 modules métier), je propose un **MVP web/PWA** livré en plusieurs itérations. La première itération remplace le site vitrine actuel par l'application NEXEL, avec les modules critiques opérationnels.
+**Acte 1 — La galère (0:00 → 0:30)**
+Rakoto, jeune chef d'entreprise malgache, débordé dans son bureau : piles de cahiers, calculatrice, employés qui demandent des infos, téléphone qui sonne. Il se prend la tête. Voix off grave et empathique.
 
-## Itération 1 — MVP fonctionnel (cette livraison)
+**Acte 2 — Le conseil (0:30 → 0:55)**
+Café avec un ami entrepreneur souriant, tablette à la main. « Tu connais TJR SERVICE ? Ils digitalisent tout ça. » Contact affiché à l'écran.
 
-**Auth & rôles**
-- Lovable Cloud (Supabase) : email/mot de passe + Google
-- Table `user_roles` (admin, gérant, vendeur, technicien, magasinier)
-- Fonction `has_role()` SECURITY DEFINER
-- Route gate `/_authenticated`
+**Acte 3 — La rencontre TJR (0:55 → 1:30)**
+Équipe TJR (logo animé) en visio avec Rakoto. Analyse besoins → maquettes → développement. Écran qui se construit, code qui défile, dashboard qui prend vie.
 
-**Catalogue intelligent (Ch. 7)**
-- Marques + modèles préchargés (iPhone, Samsung, Redmi, Tecno, Infinix, Itel, Oppo, Realme, Huawei, Honor)
-- Attributs paramétrables : stockage, RAM, couleur, état (neuf/reconditionné)
-- Génération auto du nom produit (ex. « iPhone 13 128 Go Noir Neuf »)
-- Catégories accessoires (câbles, audio, stockage, informatique)
-- Import/export Excel
+**Acte 4 — La transformation (1:30 → 2:05)**
+Livraison de l'app personnalisée. Rakoto sur son smartphone : stock, ventes, employés, rapports en temps réel. Ses employés heureux, magasin fluide.
 
-**Point de vente / POS (6.1)**
-- Recherche produit instantanée
-- Panier, remises, multi-paiement (espèces, Mvola, Orange Money, Airtel Money)
-- Impression ticket (format 58/80 mm via CSS print)
-- Devise Ariary (Ar) sans décimales
+**Acte 5 — La liberté (2:05 → 2:30)**
+Rakoto sur la plage de Nosy Be, cocktail à la main, consulte son dashboard, sourit. Fondu sur logo TJR + contacts + tagline.
 
-**Stock (6.3)**
-- Multi-boutiques, entrées/sorties tracées
-- Alerte seuil bas, historique mouvements
-- Inventaire
+## Script voix off (français, ton chaleureux et pro)
 
-**Réparations (6.6)**
-- Dépôt appareil (IMEI, diagnostic, devis)
-- Statuts : Reçu → Diagnostic → Devis → En réparation → Prêt → Restitué
-- Consommation pièces depuis stock
-- Bon de dépôt / bon de restitution imprimables
+1. « Diriger son entreprise ne devrait pas être un combat quotidien… »
+2. « Stocks, ventes, employés, factures — tout à gérer, jamais assez de temps. »
+3. « Et si la solution tenait dans votre poche ? »
+4. « TJR SERVICE conçoit des applications de gestion sur mesure, pour votre entreprise, votre école, votre boutique. »
+5. « Analyse, conception, développement — une équipe qui comprend votre réalité. »
+6. « Aujourd'hui, Rakoto pilote son entreprise depuis n'importe où. En temps réel. En toute sérénité. »
+7. « TJR SERVICE. Digitalisez. Simplifiez. Prospérez. »
+8. « Contactez-nous : +261 34 79 333 70 — remeoky01@gmail.com »
 
-**Clients & Fournisseurs**
-- Fiche client (historique achats + réparations + garanties)
-- Fournisseurs et bons de commande
+## Production
 
-**Tableau de bord & rapports (6.11)**
-- CA jour/semaine/mois, marge, top produits, rotation
-- Export Excel/PDF
+**Visuels (photoréaliste IA — Gemini 3 Pro Image)**
+- 10 images hero 1920×1080 : bureau chaotique, calculatrice/cahiers, café avec ami, écran tablette, équipe TJR en visio, wireframes, dashboard mobile, boutique fluide, plage Nosy Be, logo final
+- Style cohérent : lumière chaude cinématique, personnages africains/malgaches, ambiance corporate premium
 
-**Design**
-- Interface pro, dense, rapide au comptoir (raccourcis clavier)
-- Palette bleu profond + accent doré (identité TJR)
-- Responsive desktop / tablette / mobile
+**Voix off**
+- ElevenLabs TTS voix française grave (voice ID `onwK4e9ZLuTAKqWW03F9` Daniel ou `bIHbv24MWmeRgasZH58o` Will)
+- 8 segments audio, request stitching pour prosodie fluide
 
-**Livrables**
-- App déployée sur `tjrservice.lovable.app` (remplace le site vitrine actuel)
-- ZIP code source complet + ZIP `dist/` prêt à héberger (Netlify), avec `_redirects` pour éviter 404
-- Fichier HTML standalone de démonstration (mode « test hors serveur »)
+**Musique**
+- ElevenLabs Music : piano + montée orchestrale corporate, 2min30, ambiance Apple/inspirante
 
-## Itérations suivantes (non incluses ici)
+**Montage Remotion**
+- 1920×1080 @ 30fps, ~4500 frames
+- Effets Ken Burns (zoom/pan) sur images fixes → mouvement cinéma
+- Sous-titres synchronisés VO
+- Logo TJR animé en intro/outro
+- Transitions : fade, wipe cinématiques
+- Palette : bleu marine `#0A2540` + or `#D4AF37` + crème `#F5F0E6`
+- Typo : Playfair Display (titres) + Inter (corps)
 
-2. Mode hors-ligne PWA (IndexedDB + sync différée)
-3. Multi-boutiques avancé & consolidation
-4. Notifications SMS clients (via passerelle)
-5. Version Windows/Android native (Tauri / Capacitor)
-6. Portail client public (suivi réparation)
+**Rendu**
+- Split en 3 chunks (0-50s, 50-100s, 100-150s) pour respecter timeout 600s
+- Concat ffmpeg → MP4 final dans `/mnt/documents/pub-tjr-service.mp4`
 
-## Questions bloquantes avant de commencer
+## Livrables
+- `/mnt/documents/pub-tjr-service.mp4` — vidéo finale
+- Sources Remotion versionnées sous `remotion/`
+- Réutilisable / modifiable
 
-1. **Remplacer le site TJR actuel** par NEXEL, ou créer NEXEL comme sous-section (`/app`) et garder le site vitrine ?
-2. **Site vitrine actuel** (`tjrservice.lovable.app`) : à conserver ou à remplacer complètement ?
-
-Réponds à ces 2 questions et je lance l'itération 1.
+## Note importante
+Production complète : ~15-20 min de travail (génération images, TTS, musique, montage, 3 rendus). Je livre tout en une seule passe.
