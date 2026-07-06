@@ -1,8 +1,9 @@
 import { Composition } from "remotion";
 import { MainVideo } from "./MainVideo";
+import { FacebookVideo } from "./FacebookVideo";
 
-// 100s @ 30fps = 3000 frames
 export const RemotionRoot = () => (
+  <>
   <Composition
     id="main"
     component={MainVideo}
@@ -11,4 +12,13 @@ export const RemotionRoot = () => (
     width={1920}
     height={1080}
   />
+  <Composition
+    id="facebook"
+    component={FacebookVideo}
+    durationInFrames={960}
+    fps={30}
+    width={1080}
+    height={1350}
+  />
+  </>
 );
