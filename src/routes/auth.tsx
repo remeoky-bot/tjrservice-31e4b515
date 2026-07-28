@@ -6,11 +6,20 @@ import { Cpu } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/hooks/use-auth";
 
-export const Route = createFileRoute("/auth")({ component: AuthPage });
+function sanitizeNext(raw: unknown): string | undefined {
+  if (typeof raw !== "string" || !raw.startsWith("/") || raw.startsWith("//")) return undefined;
+  return raw;
+}
+
+export const Route = createFileRoute("/auth")({
+  validateSearch: (s: Record<string, unknown>) => ({ next: sanitizeNext(s.next) }),
+  component: AuthPage,
+});
 
 function AuthPage() {
   const nav = useNavigate();
   const { user, loading } = useAuth();
+  const { next } = Route.useSearch();
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,8 +27,11 @@ function AuthPage() {
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    if (!loading && user) nav({ to: "/dashboard" });
-  }, [user, loading, nav]);
+    if (!loading && user) {
+      if (next) window.location.href = next;
+      else nav({ to: "/dashboard" });
+    }
+  }, [user, loading, nav, next]);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +41,7 @@ function AuthPage() {
         const { error } = await supabase.auth.signUp({
           email, password,
           options: {
-            emailRedirectTo: `${window.location.origin}/dashboard`,
+            emailRedirectTo: next ? `${window.location.origin}${next}` : `${window.location.origin}/dashboard`,
             data: { full_name: name },
           },
         });
@@ -39,7 +51,8 @@ function AuthPage() {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
       }
-      nav({ to: "/dashboard" });
+      if (next) window.location.href = next;
+      else nav({ to: "/dashboard" });
     } catch (err: any) {
       toast.error(err?.message ?? "Erreur d'authentification");
     } finally { setBusy(false); }
@@ -47,7 +60,9 @@ function AuthPage() {
 
   const google = async () => {
     setBusy(true);
-    const res = await lovable.auth.signInWithOAuth("google", { redirect_uri: `${window.location.origin}/dashboard` });
+    const res = await lovable.auth.signInWithOAuth("google", {
+      redirect_uri: next ? `${window.location.origin}${next}` : `${window.location.origin}/dashboard`,
+    });
     if ((res as any).error) toast.error((res as any).error.message ?? "Erreur Google");
     setBusy(false);
   };
