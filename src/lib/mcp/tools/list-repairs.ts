@@ -10,7 +10,7 @@ function db(ctx: ToolContext) {
   });
 }
 
-const StatusEnum = z.enum(["recu", "diagnostic", "en_cours", "attente_piece", "pret", "livre", "annule"]);
+const StatusEnum = z.enum(["recu", "devis", "diagnostic", "en_reparation", "pret", "restitue", "annule"]);
 
 export default defineTool({
   name: "list_repairs",
