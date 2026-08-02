@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Target, Eye, Heart, ArrowRight } from "lucide-react";
 import { Layout } from "@/components/Layout";
-import founder from "@/assets/founder.jpg.asset.json";
+import founder from "@/assets/Photo_de_Tafita.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
