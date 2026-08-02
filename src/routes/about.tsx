@@ -48,7 +48,7 @@ function AboutPage() {
         <div className="grid gap-6 md:grid-cols-3">
           {[
             { icon: Target, title: "Notre mission", text: "Rendre les technologies et les solutions techniques accessibles à tous, avec qualité et transparence." },
-            { icon: Eye, title: "Notre vision", text: "Devenir le partenaire de référence pour les entreprises malgaches qui veulent grandir grâce au digital." },
+            { icon: Eye, title: "Notre vision", text: "Devenir le partenaire de référence pour les entreprises\u00A0 qui veulent grandir grâce au digital." },
             { icon: Heart, title: "Nos valeurs", text: "Excellence, écoute, fiabilité, créativité et engagement durable envers nos clients." },
           ].map((v) => (
             <div key={v.title} className="rounded-2xl border border-white/10 bg-card p-7 shadow-card">
