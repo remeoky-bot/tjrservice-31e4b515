@@ -1,63 +1,32 @@
-# Pub TJR SERVICE — Vidéo promotionnelle 2min30
+# Revenir exactement au site TJR SERVICE publié
 
-## Concept narratif (5 actes)
+L'aperçu affiche aujourd'hui l'ERP « NEXEL Manager Pro ». Le site publié sur tjrservice.lovable.app est le site vitrine TJR SERVICE. J'ai retrouvé dans l'historique du projet la dernière version complète de ce site vitrine (juste avant la transformation en ERP) : elle contient la page d'accueil vitrine, l'en-tête, le pied de page, le bouton WhatsApp flottant, le sitemap et les fichiers SEO.
 
-**Acte 1 — La galère (0:00 → 0:30)**
-Rakoto, jeune chef d'entreprise malgache, débordé dans son bureau : piles de cahiers, calculatrice, employés qui demandent des infos, téléphone qui sonne. Il se prend la tête. Voix off grave et empathique.
+## Ce que je restaure (le vrai code TJR SERVICE)
 
-**Acte 2 — Le conseil (0:30 → 0:55)**
-Café avec un ami entrepreneur souriant, tablette à la main. « Tu connais TJR SERVICE ? Ils digitalisent tout ça. » Contact affiché à l'écran.
+- Page d'accueil vitrine complète : `src/routes/index.tsx`
+- En-tête, pied de page, mise en page, bouton WhatsApp flottant
+- Données du site (services, projets, contacts) : `src/lib/site-data.ts`
+- Mise en page racine `__root.tsx` et thème/couleurs `src/styles.css` (bleu TJR SERVICE)
+- `sitemap.xml`, `robots.txt`, `llms.txt`, `_redirects` (correctif 404 Netlify)
+- Les images du site (logo, hero, projets) sont déjà présentes et conservées
 
-**Acte 3 — La rencontre TJR (0:55 → 1:30)**
-Équipe TJR (logo animé) en visio avec Rakoto. Analyse besoins → maquettes → développement. Écran qui se construit, code qui défile, dashboard qui prend vie.
+## Ce que je supprime définitivement
 
-**Acte 4 — La transformation (1:30 → 2:05)**
-Livraison de l'app personnalisée. Rakoto sur son smartphone : stock, ventes, employés, rapports en temps réel. Ses employés heureux, magasin fluide.
+- Toutes les pages de l'ERP NEXEL : tableau de bord, caisse, stock, catalogue, réparations, clients, réglages
+- La page de connexion / inscription et le contexte d'authentification
+- L'intégration agents MCP : route `/mcp`, page de consentement OAuth, manifeste, dossiers `[.mcp]` et `[.well-known]`, plugin MCP dans `vite.config.ts`, dépendance MCP
+- Tout code TJR BTP Manager restant dans le projet
 
-**Acte 5 — La liberté (2:05 → 2:30)**
-Rakoto sur la plage de Nosy Be, cocktail à la main, consulte son dashboard, sourit. Fondu sur logo TJR + contacts + tagline.
+Ces éléments ne seront pas archivés ni réappliquables : suppression définitive, comme demandé.
 
-## Script voix off (français, ton chaleureux et pro)
+## Points à savoir
 
-1. « Diriger son entreprise ne devrait pas être un combat quotidien… »
-2. « Stocks, ventes, employés, factures — tout à gérer, jamais assez de temps. »
-3. « Et si la solution tenait dans votre poche ? »
-4. « TJR SERVICE conçoit des applications de gestion sur mesure, pour votre entreprise, votre école, votre boutique. »
-5. « Analyse, conception, développement — une équipe qui comprend votre réalité. »
-6. « Aujourd'hui, Rakoto pilote son entreprise depuis n'importe où. En temps réel. En toute sérénité. »
-7. « TJR SERVICE. Digitalisez. Simplifiez. Prospérez. »
-8. « Contactez-nous : +261 34 79 333 70 — remeoky01@gmail.com »
+- Le site en ligne n'est pas touché par ce nettoyage. Il reste tel quel jusqu'à ce que tu cliques sur Publier. Après validation, l'aperçu et le site publié seront identiques.
+- Les tables créées en base (produits, ventes, réparations…) ne sont plus utilisées par le site vitrine. Je les laisse en place car les supprimer est irréversible ; dis-moi si tu veux aussi les effacer.
+- Les vidéos et images promotionnelles générées sont des fichiers séparés déjà téléchargeables, elles ne font pas partie du code du site.
 
-## Production
+## Détails techniques
 
-**Visuels (photoréaliste IA — Gemini 3 Pro Image)**
-- 10 images hero 1920×1080 : bureau chaotique, calculatrice/cahiers, café avec ami, écran tablette, équipe TJR en visio, wireframes, dashboard mobile, boutique fluide, plage Nosy Be, logo final
-- Style cohérent : lumière chaude cinématique, personnages africains/malgaches, ambiance corporate premium
-
-**Voix off**
-- ElevenLabs TTS voix française grave (voice ID `onwK4e9ZLuTAKqWW03F9` Daniel ou `bIHbv24MWmeRgasZH58o` Will)
-- 8 segments audio, request stitching pour prosodie fluide
-
-**Musique**
-- ElevenLabs Music : piano + montée orchestrale corporate, 2min30, ambiance Apple/inspirante
-
-**Montage Remotion**
-- 1920×1080 @ 30fps, ~4500 frames
-- Effets Ken Burns (zoom/pan) sur images fixes → mouvement cinéma
-- Sous-titres synchronisés VO
-- Logo TJR animé en intro/outro
-- Transitions : fade, wipe cinématiques
-- Palette : bleu marine `#0A2540` + or `#D4AF37` + crème `#F5F0E6`
-- Typo : Playfair Display (titres) + Inter (corps)
-
-**Rendu**
-- Split en 3 chunks (0-50s, 50-100s, 100-150s) pour respecter timeout 600s
-- Concat ffmpeg → MP4 final dans `/mnt/documents/pub-tjr-service.mp4`
-
-## Livrables
-- `/mnt/documents/pub-tjr-service.mp4` — vidéo finale
-- Sources Remotion versionnées sous `remotion/`
-- Réutilisable / modifiable
-
-## Note importante
-Production complète : ~15-20 min de travail (génération images, TTS, musique, montage, 3 rendus). Je livre tout en une seule passe.
+Restauration des fichiers depuis le commit précédant la suppression du site vitrine (`77ea72c^`) : `src/routes/index.tsx`, `src/routes/__root.tsx`, `src/routes/sitemap[.]xml.ts`, `src/components/{Header,Footer,Layout,WhatsAppFloat}.tsx`, `src/lib/site-data.ts`, `src/styles.css`, `public/{robots.txt,llms.txt,_redirects}`.
+Suppression : `src/routes/_app*.tsx`, `src/routes/auth.tsx`, `src/routes/mcp.ts`, `src/routes/[.]lovable.oauth.consent.tsx`, `src/routes/[.mcp]`, `src/routes/[.well-known]`, `src/hooks/use-auth.tsx`, `.lovable/mcp/`, retrait de `mcpPlugin()` de `vite.config.ts` et de `@lovable.dev/mcp-js` de `package.json`. `src/routeTree.gen.ts` est régénéré automatiquement. Vérification finale par un build de production.
