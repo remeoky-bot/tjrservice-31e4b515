@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Target, Eye, Heart, ArrowRight } from "lucide-react";
 import { Layout } from "@/components/Layout";
-import founder from "@/assets/Photo_de_Tafita.png.asset.json";
+import founder from "@/assets/photo-fondateur.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -10,6 +10,8 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Découvrez TJR Service et son fondateur Joseph Remeoky Tafita. Notre mission, notre vision et nos valeurs pour accompagner vos projets digitaux et BTP." },
       { property: "og:title", content: "À propos – TJR Service" },
       { property: "og:description", content: "Mission, vision et valeurs de TJR Service." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
@@ -38,7 +40,7 @@ function AboutPage() {
           <div className="relative mx-auto w-full max-w-sm">
             <div className="absolute -inset-6 -z-10 rounded-3xl gradient-brand opacity-30 blur-3xl" />
             <div className="overflow-hidden rounded-3xl border border-white/10 shadow-glow">
-              <img src={founder.url} alt="Joseph Remeoky Tafita" className="h-auto w-full object-cover" width={800} height={800} />
+              <img src={founder} alt="Joseph Remeoky Tafita, fondateur de TJR Service" className="h-auto w-full object-cover" width={800} height={800} />
             </div>
           </div>
         </div>

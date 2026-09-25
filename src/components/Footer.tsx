@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Linkedin, Mail, Phone, MapPin, ExternalLink } from "lucide-react";
-import logo from "@/assets/tjr-logo.jpg.asset.json";
+import logo from "@/assets/logo-tjr-service.png";
 
 export function Footer() {
   return (
@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="flex items-center gap-2.5">
-            <img src={logo.url} alt="TJR Service" className="h-10 w-10 rounded-lg bg-white object-contain" />
+            <img src={logo} alt="Logo TJR Service" className="h-10 w-10 rounded-lg bg-white object-contain" />
             <span className="font-display text-lg font-bold">TJR Service</span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">

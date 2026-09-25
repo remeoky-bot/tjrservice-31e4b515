@@ -11,6 +11,8 @@ export const Route = createFileRoute("/services")({
       { name: "description", content: "Services TJR Service : développement web et mobile, design graphique, maintenance, architecture, BTP et électricité à Madagascar." },
       { property: "og:title", content: "Nos Services – TJR Service" },
       { property: "og:description", content: "Solutions digitales et techniques complètes pour particuliers et entreprises." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
