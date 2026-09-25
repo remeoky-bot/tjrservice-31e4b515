@@ -41,6 +41,8 @@ export const Route = createFileRoute("/portfolio")({
       { name: "description", content: "Découvrez les projets réalisés par TJR Service : sites web, applications mobiles, identités visuelles et modélisations 3D." },
       { property: "og:title", content: "Portfolio – TJR Service" },
       { property: "og:description", content: "Une sélection de réalisations TJR Service." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { property: "og:url", content: "/portfolio" },
     ],
     links: [{ rel: "canonical", href: "/portfolio" }],

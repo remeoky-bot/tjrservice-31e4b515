@@ -10,6 +10,8 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Découvrez TJR Service et son fondateur Joseph Remeoky Tafita. Notre mission, notre vision et nos valeurs pour accompagner vos projets digitaux et BTP." },
       { property: "og:title", content: "À propos – TJR Service" },
       { property: "og:description", content: "Mission, vision et valeurs de TJR Service." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],

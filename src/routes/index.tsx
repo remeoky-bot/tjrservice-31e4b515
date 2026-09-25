@@ -16,6 +16,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Agence digitale et BTP à Antananarivo : sites web, apps mobiles, design, maintenance et BTP. Devis gratuit sous 24h." },
       { property: "og:title", content: "TJR Service – Agence digitale & BTP" },
       { property: "og:description", content: "Création de sites web, applications, design graphique et solutions techniques professionnelles à Madagascar." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],

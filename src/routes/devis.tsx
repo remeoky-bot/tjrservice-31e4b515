@@ -26,6 +26,8 @@ export const Route = createFileRoute("/devis")({
       { name: "description", content: "Recevez un devis personnalisé et gratuit pour votre projet web, mobile, design, maintenance, BTP ou électricité à Madagascar." },
       { property: "og:title", content: "Devis gratuit – TJR Service" },
       { property: "og:description", content: "Recevez votre devis personnalisé sous 24h." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { property: "og:url", content: "/devis" },
     ],
     links: [{ rel: "canonical", href: "/devis" }],

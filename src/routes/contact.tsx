@@ -21,6 +21,8 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Contactez TJR Service : téléphone, WhatsApp, email, Facebook et LinkedIn. Antananarivo, Madagascar." },
       { property: "og:title", content: "Contact – TJR Service" },
       { property: "og:description", content: "Joignez-nous pour vos projets web, mobile, design ou BTP." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
